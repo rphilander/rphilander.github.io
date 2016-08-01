@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Proteus</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+
+        <h1>Proteus</h1>
+
+        <p><i>This is a description of Proteus. You may also watch a <a href="https://www.youtube.com/watch?v=gee8Z7RBPso">video</a> or peruse the <a href="https://github.com/rphilander/proteus">repo</a>.</i></p>
+
+        <p>Proteus is a query builder with a wholly different user experience from other query builders — you “build” queries by entering keywords. The user experience is similar to search engines such as Google or Bing. As you enter your keywords, relevant queries are displayed. More specifically, English sentences describing relevant queries are displayed. You click on an English description to execute the associated query.</p>
+
+        <p>As a concrete example, suppose the target database contains NFL scores and statistics and I, the end user, want to find out which quarterback threw the most touchdown passes in 2011. I might provide as input: “most touchdowns 2011”. The search results would include a number of queries related to those keywords, such as: which team scored the most touchdowns in 2011, which receiver caught the most touchdown passes in 2011, which quarterback threw the most touchdown passes in 2011, and so forth. I click on the appropriate query and I get the desired information.</p>
+
+        <p>While Proteus creates the illusion of searching through a multitude of already-existing queries, the implementation is quite different. For even a relatively simple database, the number of potentially interesting queries is immense. It would be impractical to generate and index that many web pages. Instead, the user’s keywords are scanned to identify tokens and then, using a set of templates, those tokens are combined to form queries. In this context, tokens are words or short phrases which have some meaning in terms of the target database. For the hypothetical NFL database, tokens would include the names of teams, the names of players, the years in which football games were played, such terminology as “touchdown” and “field goal”, and so forth. The templates allow those tokens to be combined in two different ways at the same time: once to generate a SQL statement, and once to generate an human-readable description (in English) of what that SQL statement does. The English descriptions are displayed to the user and, when the user selects a particular query for execution, the corresponding SQL is run against the target database. The results are then displayed to the user.</p>
+
+        <p>The tokens and templates are created when Proteus is configured for a particular database. Note that most tokens exist in the database itself, for instance the names of teams in the NFL example, and can therefore be defined implicitly in SQL (e.g. SELECT DISTINCT team_name FROM teams;). The templates must be crafted with some care — they define the set of queries supported by an instance of Proteus and should meet the needs of the end users.</p>
+
+        <p>Proteus exists because the extremely useful skill of building queries is hard and complex. In essence, it is a kind of programming. The person building the query must think simultaneously in two domains: the real world, in which the need for particular information exists, and the computer world, in which very precise and unambiguous code must be crafted. To be successful the code must not only run without errors, but address the real-world needs that motivated it. Since relatively few people have this skill, most people must either rely on programmers, which is expensive, or use a query building tool. Existing query building tools are quite powerful, but I have personally found them limited in the range of queries they can support. With existing tools you are essentially building a query using buttons and sliders and pull-down menus and the like, and there is a limit to how many buttons and sliders and pull-down menus can be presented to the user before the visual experience becomes overwhelming. Proteus, in contrast, leverages the combinatorial expressiveness of the SQL, but wraps it in a friendly natural-language package to make that expressiveness accessible to the non-programmer. To think of it another way: the user is able to drive the difficult and error-prone process of building queries, through the very familiar and intuitive process of entering keywords and reading the English sentences.</p>
+
+        <p>Proteus currently exists as “demo-ware”. As such, it is open source and free to download and use, under the specified license. Feel free to contact me with questions or suggestions: <code>lt3w</code> at the domain <code>looselythered</code> in the top level domain <code>com</code>.</p>
+
+        <br/>
+
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+</html>
